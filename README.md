@@ -1,75 +1,111 @@
-# React + TypeScript + Vite
+# Joyce Femina J — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, recruiter-friendly portfolio website built with React, TypeScript, Vite, Tailwind CSS, and Framer Motion.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Premium dark UI** inspired by Linear, Vercel, and Stripe
+- **Command Palette** (`⌘K` / `Ctrl+K`) for instant navigation
+- **Interactive Career Timeline** with scroll-driven animations
+- **Case-study Project Showcase** with architecture diagrams and impact metrics
+- **Skill Galaxy** — interactive node-based skill visualization
+- **Recruiter Dashboard** — "Why Hire Me?" with key metrics
+- **Engineering Mindset** section with interactive pillar navigation
+- **SEO optimized** — meta tags, Open Graph, JSON-LD structured data, sitemap, robots.txt
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Vite 8
+- Tailwind CSS 4
+- Framer Motion
+- React Icons
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Install dependencies
+npm install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Start development server
+npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Build for production
+npm run build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 
 ```
+src/
+├── components/
+│   ├── layout/       # Navbar, Footer, CommandPalette
+│   ├── sections/     # Hero, Timeline, Projects, Skills, etc.
+│   ├── seo/          # Structured data
+│   └── ui/           # Reusable UI primitives
+├── data/             # Resume-driven content (single source of truth)
+├── hooks/            # Custom React hooks
+└── types/            # TypeScript interfaces
+public/
+├── resume.pdf        # Downloadable resume
+├── sitemap.xml
+└── robots.txt
+```
+
+## Customization
+
+All portfolio content lives in `src/data/`:
+
+| File | Content |
+|------|---------|
+| `profile.ts` | Name, contact, role, availability |
+| `timeline.ts` | Career journey events |
+| `projects.ts` | Case study project data |
+| `skills.ts` | Skill galaxy categories |
+| `content.ts` | Hire reasons, mindset pillars, testimonials |
+| `navigation.ts` | Nav items, command palette, SEO config |
+
+Update these files to reflect new experience, projects, or contact details.
+
+## Deploy to Vercel
+
+### Option 1: Vercel CLI
+
+```bash
+npm install -g vercel
+vercel
+```
+
+Follow the prompts. Vercel auto-detects Vite.
+
+### Option 2: GitHub Integration
+
+1. Push this repo to GitHub
+2. Go to [vercel.com](https://vercel.com) and import the repository
+3. Vercel auto-configures:
+   - **Framework Preset:** Vite
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Click **Deploy**
+
+### Post-deployment
+
+1. Update `seo.url` in `src/data/navigation.ts` with your Vercel domain
+2. Update `canonical` URL and `og:image` in `index.html`
+3. Update `sitemap.xml` and `robots.txt` with your production URL
+4. Replace `public/og-image.svg` with a PNG version for better social sharing
+
+## Performance
+
+- Lazy viewport animations (animate only when visible)
+- Minimal dependencies
+- Semantic HTML with ARIA labels
+- Mobile-first responsive design
+- Target Lighthouse score: 95+
+
+## License
+
+Private — © Joyce Femina J
