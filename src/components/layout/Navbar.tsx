@@ -52,8 +52,13 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => handleNav('hero')}
-            className="text-lg font-semibold tracking-tight hover:opacity-80 transition-opacity shrink-0"
+            className={`text-lg font-semibold tracking-tight transition-all shrink-0 rounded-lg px-2 py-1 -ml-2 ${
+              activeSection === 'hero'
+                ? 'bg-indigo-500/10'
+                : 'hover:opacity-80'
+            }`}
             aria-label="Go to home"
+            aria-current={activeSection === 'hero' ? 'true' : undefined}
           >
             <span className="text-gradient">JF</span>
             <span className="text-indigo-400">.</span>

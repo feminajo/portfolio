@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: 'nebula',
     name: 'Nebula',
     company: 'Cavin Infotech',
-    role: 'Frontend Developer',
+    role: 'Frontend Engineer',
     period: '2025 – Present',
     tagline: 'Internal Multi-Model AI Chatbot Platform',
     problem:
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     id: 'smartpetbowl',
     name: 'SmartPetBowl',
     company: 'Cavin Infotech',
-    role: 'Frontend Developer',
+    role: 'Frontend Engineer',
     period: '2025 – Present',
     tagline: 'IoT-based Pet Health Monitoring Platform',
     problem:

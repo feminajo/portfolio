@@ -13,7 +13,7 @@ export const profile: Profile = {
   github: 'https://github.com/feminajo',
   availability: 'available',
   availabilityLabel: 'Open to opportunities',
-  currentRole: 'Frontend Developer — AI/LLM Applications',
+  currentRole: 'Frontend Engineer — AI/LLM Applications',
   currentCompany: 'Cavin Infotech',
   experienceYears: '4.5+',
   highlights: [

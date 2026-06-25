@@ -32,7 +32,7 @@ export const timelineEvents: TimelineEvent[] = [
     id: 'cavin',
     year: 'Present',
     period: 'Sep 2025 – Present',
-    title: 'Frontend Developer — AI/LLM Applications',
+    title: 'Frontend Engineer — AI/LLM Applications',
     organization: 'Cavin Infotech (CavinKare Group) — Chennai, India',
     description:
       'Leading UI development for AI-powered platforms — architecting multi-model LLM chat interfaces, real-time streaming, and IoT health monitoring dashboards from the ground up.',

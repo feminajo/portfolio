@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { HiChevronDown } from 'react-icons/hi'
 import { skillCategories } from '../../data/skills'
 import { SectionHeader } from '../ui/SectionHeader'
 import { MotionReveal } from '../ui/MotionReveal'
@@ -230,6 +231,7 @@ function AllSkillsStrip({
 export function SkillGalaxy() {
   const [activeCategory, setActiveCategory] = useState<string | null>(skillCategories[0]?.id ?? null)
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+  const [explorerOpen, setExplorerOpen] = useState(false)
 
   const handleSelect = (id: string) => {
     setActiveCategory((prev) => (prev === id ? prev : id))
@@ -242,7 +244,7 @@ export function SkillGalaxy() {
         <SectionHeader
           label="Skills"
           title="Tech stack at a glance"
-          description="Scan the full stack first — then explore the interactive diagram below."
+          description="Every skill listed below — expand to explore the interactive diagram."
         />
 
         <MotionReveal>
@@ -253,17 +255,38 @@ export function SkillGalaxy() {
         </MotionReveal>
 
         <MotionReveal delay={0.1}>
-          <p className="text-center text-xs text-zinc-500 uppercase tracking-wider mb-4">
-            Interactive explorer
-          </p>
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-            <SkillDiagram activeCategory={activeCategory} onSelect={handleSelect} />
-            <SkillPanel
-              activeCategory={activeCategory}
-              hoveredSkill={hoveredSkill}
-              onHoverSkill={setHoveredSkill}
-            />
-          </div>
+          <button
+            type="button"
+            onClick={() => setExplorerOpen(!explorerOpen)}
+            className="flex items-center gap-2 text-sm text-zinc-400 hover:text-zinc-200 transition-colors mb-4"
+            aria-expanded={explorerOpen}
+          >
+            <span className="uppercase tracking-wider text-xs">Explore visually</span>
+            <motion.span animate={{ rotate: explorerOpen ? 180 : 0 }}>
+              <HiChevronDown size={16} />
+            </motion.span>
+          </button>
+
+          <AnimatePresence>
+            {explorerOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-start pb-2">
+                  <SkillDiagram activeCategory={activeCategory} onSelect={handleSelect} />
+                  <SkillPanel
+                    activeCategory={activeCategory}
+                    hoveredSkill={hoveredSkill}
+                    onHoverSkill={setHoveredSkill}
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </MotionReveal>
       </div>
     </section>

@@ -25,7 +25,7 @@ export function WhyHireMe() {
     <section id="why-hire" className="section-padding bg-white/[0.01]">
       <div className="page-container">
         <SectionHeader
-          label="Recruiter Dashboard"
+          label="Highlights"
           title="Why hire me?"
           description="The metrics and highlights that matter — distilled for quick evaluation."
         />
